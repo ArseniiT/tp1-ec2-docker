@@ -1,7 +1,7 @@
 # Configure the AWS provider with the Academy profile and region
 provider "aws" {
-  region = "us-east-1"          # Region specified as us-east-1
-  profile = "academy"           # Use the AWS Academy profile from ~/.aws/credentials
+  region = "eu-west-3"          # Region specified as us-east-1
+#   profile = "academy"           # Use the AWS Academy profile from ~/.aws/credentials
 }
 
 # SSH key pair for access to the instance
@@ -37,7 +37,7 @@ resource "aws_security_group" "allow_ssh" {
 
 # Create an EC2 instance
 resource "aws_instance" "docker_server" {
-  ami           = "ami-04b4f1a9cf54c11d0" # AMI for us-east-1 (verify availability in Academy Lab)
+  ami           = "ami-09a9858973b288bdd"
   instance_type = "t2.micro"
   key_name      = aws_key_pair.deployer_key.key_name
   security_groups = [aws_security_group.allow_ssh.name]
