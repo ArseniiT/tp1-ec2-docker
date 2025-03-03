@@ -37,7 +37,7 @@ resource "aws_security_group" "allow_ssh" {
 
 # Create an EC2 instance
 resource "aws_instance" "docker_server" {
-  ami           = "ami-09a9858973b288bdd"
+  ami           = "ami-09a9858973b288bdd" # Ubuntu of eu-west-3 Paris region
   instance_type = "t2.micro"
   key_name      = aws_key_pair.deployer_key.key_name
   security_groups = [aws_security_group.allow_ssh.name]
